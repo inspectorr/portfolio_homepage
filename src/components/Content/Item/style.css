@@ -1,0 +1,17 @@
+/* .card-body {
+    margin-bottom: 3em;
+} */
+/* .Img.col {
+    max-width:
+} */
+/* .Element.row {
+    white-space: nowrap;
+} */
+.Element.Img.col-auto {
+    padding: 0;
+}
+
+.btn-dark {
+    font-weight: 500;
+    
+}

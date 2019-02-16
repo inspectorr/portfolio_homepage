@@ -1,0 +1,32 @@
+.List.container {
+    z-index: 100;
+    position: relative;
+    /* background-color: #FFF !important; */
+
+    /* background-color: #333333; */
+}
+
+h2 {
+    font-weight: bold !important;
+}
+
+.row.mx-auto {
+    max-width: 800px;
+}
+
+
+.card {
+    /* background-color: #fff !important; */
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    border-width: 0.3em !important;
+    border-color: #343a40 !important;
+}
+
+.Tittle.card, .navbar-brand {
+    background-color: #343a40 !important;
+    color: #FFF !important;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}

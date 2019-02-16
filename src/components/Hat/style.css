@@ -1,0 +1,16 @@
+/* .Hat.navbar {
+    position: absolute;
+} */
+
+.Hat__tittle.navbar-brand {
+    z-index: 1001;
+    border: none !important;
+    background-color: Transparent !important;
+    color: #fff;
+}
+
+.Hat__bg {
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0em 0.3em 1em;
+}
