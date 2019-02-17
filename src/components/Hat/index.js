@@ -23,8 +23,6 @@ function animate(options) {
     });
 }
 
-
-
 class Hat extends Component {
     state = {
         scrollTop: document.documentElement.scrollTop
@@ -36,11 +34,8 @@ class Hat extends Component {
         let x = randInt(0, width);
         let y = randInt(0, height);
 
-        // const sR = randInt(5, 29);
-        // const sR = this.props.height;
         const sR = 0;
         const eR = width;
-        // const eR = randInt(30, 60);
 
         const color = {
             r: randInt(50, 255),
@@ -51,8 +46,7 @@ class Hat extends Component {
             color.g = 0;
         }
 
-        // const duration = randInt(400, 4000);
-        const duration = randInt(5000, 10000);
+        const duration = randInt(15000, 20000);
 
         return [x, y, sR, eR, color, duration];
     }
@@ -66,7 +60,6 @@ class Hat extends Component {
             timing: (timeFraction) => timeFraction,
             draw: function(progress) {
                 const R = sR + (eR - sR)*progress;
-                // let a = progress;
                 const radGrad = ctx.createRadialGradient(x, y, 1, x, y, R);
                 radGrad.addColorStop(0.1, `rgba(${r}, ${g}, ${b}, ${0.5})`);
                 radGrad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
@@ -82,7 +75,7 @@ class Hat extends Component {
         const {width, height} = this.props;
 
         let startRoundsData = [];
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 0.02*width; i++) {
             startRoundsData[i] = this.generateRandomData();
         }
 
@@ -95,36 +88,51 @@ class Hat extends Component {
         if (this.interval) clearInterval(this.interval);
         this.interval = setInterval(
             () => this.drawRound(...this.generateRandomData()),
-            this.props.width
+            5*this.props.width
         );
     }
 
     componentDidMount() {
         this.animate();
         this.launchInterval();
-        // window.addEventListener('scroll', () => this.setState({ scrollTop: document.documentElement.scrollTop }));
-    }
 
-    componentDidUpdate() {
-        // this.animate();
+        this.refs.portfolio.addEventListener('click', () => {
+            this.refs.portfolio.className = 'nav-link active';
+            this.refs.contacts.className = 'nav-link';
+
+            this.props.setTab('portfolio');
+        })
+
+        this.refs.contacts.addEventListener('click', () => {
+            this.refs.contacts.className = 'nav-link active';
+            this.refs.portfolio.className = 'nav-link';
+
+            this.props.setTab('contacts');
+        })
+
     }
 
     render() {
-        const {width, height} = this.props;
+        let {width, height} = this.props;
+        if (height < 100) height = 100;
+
         const {scrollTop} = this.state;
 
-        // let fixedTop = true;
-        // if (scrollTop > height) fixedTop = false;
+        const adaptiveStartWidth = 600;
+
+        let tittle;
+        if (width >= adaptiveStartWidth) {
+            tittle = <div className='Tittle col-md-12 align-self-end p-0'>
+                <h1 onMouseDown={(e) => e.preventDefault()} onDoubleClick={(e) => e.preventDefault()} className="font-weight-bold">inspectorr.github.io</h1>
+            </div>;
+        } else tittle = <div className='Tittle col-md-12 align-self-end text-center p-0'>
+            <h1 style={{fontSize: '8vw'}} onMouseDown={(e) => e.preventDefault()} onDoubleClick={(e) => e.preventDefault()} className="font-weight-bold">inspectorr.github.io</h1>
+        </div>;
 
         return (
-            <div
-                className={`Hat navbar m-0 p-0`}
-                onMouseDown={(event) => event.preventDefault()}
-                onDoubleClick={(event) => event.preventDefault()}
+            <div className='container-fluid m-0 p-0'
                 style={{
-                    width: width + 'px',
                     height: height + 'px',
-                    cursor: 'default',
                 }}
             >
                 <canvas
@@ -133,20 +141,27 @@ class Hat extends Component {
                     width={width}
                     height={height}>
                 </canvas>
-                <a
-                    className='Hat__tittle navbar-brand pl-3'
-                >
-                    <h1>inspectorr.github.io</h1>
-                </a>
+
+                <div className='row h-100 mx-auto p-0'>
+
+                    {tittle}
+
+                    <div className='Nav col-md-12 align-self-end p-0'>
+                        <ul className="nav nav-tabs m-0">
+                            <li className="nav-item">
+                                <a ref='portfolio' className="nav-link active" href="#!">Портфолио</a>
+                            </li>
+                            <li className="nav-item">
+                                <a ref='contacts' className="nav-link" href="#!">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
         );
     }
 }
-
-// style={{
-//     height: 2*height/3 + 'px',
-//     top: height/2 + 'px',
-//     marginTop: -2*height/6 + 'px'
-// }}
 
 export default Hat;
