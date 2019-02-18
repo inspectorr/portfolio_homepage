@@ -52,7 +52,6 @@ class Hat extends Component {
     }
 
     drawRound(x, y, sR, eR, color, duration) {
-        const {width, height} = this.props;
         const ctx = this.refs.canvas.getContext('2d');
         const {r, g, b} = color;
         animate({
@@ -72,7 +71,7 @@ class Hat extends Component {
     }
 
     animate() {
-        const {width, height} = this.props;
+        const {width} = this.props;
 
         let startRoundsData = [];
         for (let i = 0; i < 0.02*width; i++) {
@@ -115,8 +114,6 @@ class Hat extends Component {
     render() {
         let {width, height} = this.props;
         if (height < 100) height = 100;
-
-        const {scrollTop} = this.state;
 
         const adaptiveStartWidth = 600;
 

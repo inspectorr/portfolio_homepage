@@ -46,6 +46,7 @@ export default class Item extends Component {
                                     >
 
                                         <img
+                                            alt=''
                                             className='Item__img img-thumbnail'
                                             width={imgSide ? imgSide : null}
                                             src={this.props.imageSrc}
@@ -56,19 +57,20 @@ export default class Item extends Component {
                                     <div className='Element col'>
                                         {tittleRight}
 
-                                        <p className='card-text'>
+                                        <p className='card-text font-weight-light'>
                                             {this.props.text}
                                         </p>
 
 
-                                        <a className='Button' href={this.props.buttonHref}>
+                                        <form action={this.props.buttonHref}>
                                             <button
+                                                type='submit'
                                                 className='btn btn-lg btn-block btn-primary rounded'
                                                 style={{bottom: 0}}
                                             >
                                                 открыть
                                             </button>
-                                        </a>
+                                        </form>
 
                                     </div>
                                 </div>

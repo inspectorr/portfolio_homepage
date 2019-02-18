@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './style.css';
 
 import Item from './Item';
-import Footer from '../Footer';
 
 export default class Content extends Component {
     render() {
@@ -43,8 +42,10 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='The Little Spaceship'
-                            text="Some quick example text to build on the card title
-                            and make up the bulk of the card's content."
+                            text="Браузерная мини-игра, написанная на чистом JS.
+                            Полностью адаптирована под мобильные устройства, мультитач.
+                            Астероиды генерируются процедурно.
+                            Внимание: он моргает!"
                             imageSrc={require('./images/spaceship.JPG')}
                             {...settings}
                             buttonHref='/thelittlespaceship'
@@ -56,8 +57,10 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='Simple Draw'
-                            text="Some quick example text to build on the card title
-                            and make up the bulk of the card's content."
+                            text="Веб-приложение для рисования на React.
+                            Для генерации линий используются кривые Безье,
+                            встроенные в Canvas API.
+                            Приложение адаптировано под мобильные устройства."
                             imageSrc={require('./images/simpledraw.JPG')}
                             buttonHref='/simpledraw'
                             {...settings}

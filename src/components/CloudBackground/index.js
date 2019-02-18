@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import './style.css';
 
 function randInt(start, end) {
@@ -28,34 +28,8 @@ export default class CloudBackground extends Component {
         const {width} = this.props;
         const height = this.state.height;
 
-        const top = randInt(0, 1);
-        const left = randInt(0, 1);
-        const right = +!left;
-        const bottom = +!top;
-
-        let x, y;
-
-        // if (top) {
-        //     y = randInt(-height/2, 0);
-        //     if (left) {
-        //         x = randInt(-width/2, width);
-        //     }
-        //     if (right) {
-        //         x = randInt(0, width + width/2);
-        //     }
-        // }
-        // if (1) {
-        //     y = randInt(height, height + height/2);
-        //     if (left) {
-        //         x = randInt(-width/2, width);
-        //     }
-        //     if (right) {
-        //         x = randInt(0, width + width/2);
-        //     }
-        // }
-
-        x = randInt(0, width);
-        y = randInt(0, height);
+        const x = randInt(0, width);
+        const y = randInt(0, height);
 
         const sR = 0;
         const eR = 0.2*width;
@@ -81,8 +55,7 @@ export default class CloudBackground extends Component {
 
         ];
 
-        let colorIndex = randInt(0, colors.length-1);
-
+        const colorIndex = randInt(0, colors.length-1);
         const color = colors[colorIndex];
 
         const duration = randInt(7000, 15000);
@@ -130,7 +103,6 @@ export default class CloudBackground extends Component {
 
     animate() {
         const {width} = this.props;
-        const height = this.state.height;
 
         let startRoundsData = [];
         for (let i = 0; i < 0.1*width; i++) {
@@ -150,8 +122,6 @@ export default class CloudBackground extends Component {
         );
     }
 
-
-
     updateDimensions() {
         let pageHeight = Math.max(
             document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -165,25 +135,12 @@ export default class CloudBackground extends Component {
         this.updateDimensions();
         this.animate();
         this.launchInterval();
-        // document.body.addEventListener('load', () => this.updateDimensions());
-        // window.addEventListener('resize', () => this.updateDimensions());
-        // window.addEventListener('scroll', () => this.launchInterval());
     }
 
 
     componentDidUpdate() {
-        // this.updateDimensions();
-        // this.animate();
         this.launchInterval();
     }
-
-    // componentWillUpdate() {
-    //     this.canvas = this.refs.canvas;
-    // }
-    //
-    // componentDidUpdate() {
-    //     this.refs.canvas.getContext('2d').drawImage(this.canvas, 0, 0, this.canvas.width, this.canvas.height);
-    // }
 
     render() {
         const {width} = this.props;

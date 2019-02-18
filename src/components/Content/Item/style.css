@@ -23,3 +23,7 @@ a.Button:hover {
     text-decoration: none !important;
     color: #fff !important;
 }
+
+.card-text {
+    font-size: 1.1rem;
+}

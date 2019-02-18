@@ -24,7 +24,6 @@ class App extends Component {
         let window = Object.assign({}, this.state.window);
         window.width = document.documentElement.clientWidth;
         window.height = document.documentElement.clientHeight;
-        console.log(window);
         this.setState({ window });
     }
 
