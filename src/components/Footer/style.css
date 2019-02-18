@@ -1,11 +1,11 @@
 html {
     position: relative;
-    height: 1000px;
     min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
+    /* height: 1500px; */
 }
 
 .footer {

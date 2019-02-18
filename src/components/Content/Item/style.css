@@ -14,3 +14,12 @@
 .btn-dark {
     font-weight: 500;
 }
+
+a.Button {
+    text-decoration: none !important;
+    color: #fff !important;
+}
+a.Button:hover {
+    text-decoration: none !important;
+    color: #fff !important;
+}

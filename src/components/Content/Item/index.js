@@ -57,15 +57,19 @@ export default class Item extends Component {
                                         {tittleRight}
 
                                         <p className='card-text'>
-                                            Some quick example text to build on the card title
-                                            and make up the bulk of the card's content.
+                                            {this.props.text}
                                         </p>
 
-                                    
-                                        <button
-                                            className='btn btn-lg btn-block btn-primary rounded'
-                                            style={{bottom: 0}}
-                                        >открыть</button>
+
+                                        <a className='Button' href={this.props.buttonHref}>
+                                            <button
+                                                className='btn btn-lg btn-block btn-primary rounded'
+                                                style={{bottom: 0}}
+                                            >
+                                                открыть
+                                            </button>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>

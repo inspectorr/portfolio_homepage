@@ -43,8 +43,11 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='The Little Spaceship'
+                            text="Some quick example text to build on the card title
+                            and make up the bulk of the card's content."
                             imageSrc={require('./images/spaceship.JPG')}
                             {...settings}
+                            buttonHref='/thelittlespaceship'
                         />
                     </div>
 
@@ -53,7 +56,10 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='Simple Draw'
+                            text="Some quick example text to build on the card title
+                            and make up the bulk of the card's content."
                             imageSrc={require('./images/simpledraw.JPG')}
+                            buttonHref='/simpledraw'
                             {...settings}
                         />
                     </div>

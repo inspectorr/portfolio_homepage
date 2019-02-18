@@ -1,8 +1,8 @@
 .Contacts.card {
     z-index: 1000;
-    border-width: 0.05em !important;
+    border-width: 0.07em !important;
     box-shadow: 0.01em 0.01em 0.5em;
-    border-color: #007bff !important;
+    border-color: #333333 !important;
     border-radius: 1em !important;
     background-color: rgba(255, 255, 255, 0.6) !important;
 }

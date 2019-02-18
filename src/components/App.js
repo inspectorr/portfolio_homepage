@@ -53,17 +53,19 @@ class App extends Component {
 
         return (
             <div className="App m-0 p-0">
-                <Hat
-                    width={this.state.window.width}
-                    height={hatHeight}
-                    setTab={(name) => this.setTab(name)}
-                />
+                <div className='main' style={{marginBottom: hatHeight*2 + 'px'}}>
+                    <Hat
+                        width={this.state.window.width}
+                        height={hatHeight}
+                        setTab={(name) => this.setTab(name)}
+                    />
 
-                {tabContent}
+                    {tabContent}
 
-                <CloudBackground
-                    width={this.state.window.width}
-                />
+                    <CloudBackground
+                        width={this.state.window.width}
+                    />
+                </div>
 
                 <Footer/>
             </div>

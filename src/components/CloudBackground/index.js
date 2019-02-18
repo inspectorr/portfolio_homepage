@@ -133,7 +133,7 @@ export default class CloudBackground extends Component {
         const height = this.state.height;
 
         let startRoundsData = [];
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 0.1*width; i++) {
             startRoundsData[i] = this.generateRandomData();
         }
 

@@ -8,7 +8,7 @@ export default class Footer extends Component {
                 <div className="container-fluid text-center">
                     <div className="row">
                         <div className="col footer-copyright text-center pt-3">
-                            © 2019 Copyright: <a href="">hmrfins@gmail.com</a>
+                            <p className="text-muted">{'© 2019 Верхотуров Роман'}</p>
                         </div>
                     </div>
                 </div>
