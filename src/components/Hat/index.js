@@ -146,10 +146,10 @@ class Hat extends Component {
                     <div className='Nav col-md-12 align-self-end p-0'>
                         <ul className="nav nav-tabs m-0">
                             <li className="nav-item">
-                                <a ref='portfolio' className="nav-link active" href="#!">Портфолио</a>
+                                <a ref='portfolio' className="nav-link active" href="#!">{this.props.text.menu[0]}</a>
                             </li>
                             <li className="nav-item">
-                                <a ref='contacts' className="nav-link" href="#!">Контакты</a>
+                                <a ref='contacts' className="nav-link" href="#!">{this.props.text.menu[1]}</a>
                             </li>
                         </ul>
                     </div>

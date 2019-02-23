@@ -5,8 +5,17 @@ import Content from './Content';
 import CloudBackground from './CloudBackground';
 import Contacts from './Contacts';
 import Footer from './Footer';
+import texts from './texts';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        let text;
+        if (this.props.lang === 'rud') text = texts.ru;
+        else text = texts.en;
+        this.text = text;
+    }
+
     state = {
         window: {
             width: document.documentElement.clientWidth,
@@ -37,6 +46,7 @@ class App extends Component {
         let tabContent;
         if (this.state.tab === 'portfolio') {
             tabContent = <Content
+                text={this.text}
                 width={this.state.window.width}
                 height={this.state.window.height - hatHeight}
                 hatHeight={hatHeight}
@@ -54,6 +64,7 @@ class App extends Component {
             <div className="App m-0 p-0">
                 <div className='main' style={{marginBottom: hatHeight*2 + 'px'}}>
                     <Hat
+                        text={this.text}
                         width={this.state.window.width}
                         height={hatHeight}
                         setTab={(name) => this.setTab(name)}
@@ -62,11 +73,12 @@ class App extends Component {
                     {tabContent}
 
                     <CloudBackground
+                        text={this.text}
                         width={this.state.window.width}
                     />
                 </div>
 
-                <Footer/>
+                <Footer text={this.text}/>
             </div>
         );
     }

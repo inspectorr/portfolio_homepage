@@ -11,12 +11,12 @@ export default class Content extends Component {
         }
         let ownProjectsTittle = <a className="navbar-brand" href="#!">
             <h2>
-                Личные проекты
+                {this.props.text.title}
             </h2>
         </a>;
         if (settings.width < adaptiveStartWidth) ownProjectsTittle = <a className="navbar-brand mx-auto" href="#!">
             <h2>
-                Личные проекты
+                {this.props.text.title}
             </h2>
         </a>
 
@@ -42,13 +42,11 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='The Little Spaceship'
-                            text="Браузерная мини-игра, написанная на чистом JS.
-                            Полностью адаптирована под мобильные устройства, мультитач.
-                            Астероиды генерируются процедурно.
-                            Внимание: он моргает!"
+                            text={this.props.text.theLittleSpaceShip}
                             imageSrc={require('./images/spaceship.JPG')}
-                            {...settings}
                             buttonHref='/thelittlespaceship'
+                            buttonText={this.props.text.button}
+                            {...settings}
                         />
                     </div>
 
@@ -57,12 +55,10 @@ export default class Content extends Component {
                     >
                         <Item
                             tittle='Simple Draw'
-                            text="Веб-приложение для рисования на React.
-                            Для генерации линий используются кривые Безье,
-                            встроенные в Canvas API.
-                            Приложение адаптировано под мобильные устройства."
+                            text={this.props.text.simpleDraw}
                             imageSrc={require('./images/simpledraw.JPG')}
                             buttonHref='/simpledraw'
+                            buttonText={this.props.text.button}
                             {...settings}
                         />
                     </div>

@@ -68,7 +68,7 @@ export default class Item extends Component {
                                                 className='btn btn-lg btn-block btn-primary rounded'
                                                 style={{bottom: 0}}
                                             >
-                                                открыть
+                                                {this.props.buttonText}
                                             </button>
                                         </form>
 

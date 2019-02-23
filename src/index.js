@@ -3,4 +3,5 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const lang = navigator.language.slice(0, 2);
+ReactDOM.render(<App lang={lang}/>, document.getElementById('root'));
