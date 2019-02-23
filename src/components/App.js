@@ -11,7 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         let text;
-        if (this.props.lang === 'rud') text = texts.ru;
+        if (this.props.lang === 'ru-RU') text = texts.ru;
         else text = texts.en;
         this.text = text;
     }
