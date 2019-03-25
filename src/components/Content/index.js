@@ -1,71 +1,50 @@
 import React, { Component } from 'react';
 import './style.css';
 
+import data from './data.js';
+
+import Block from './Block';
 import Item from './Item';
 
 export default class Content extends Component {
-    render() {
-        const adaptiveStartWidth = 600;
-        const settings = {
-            width: this.props.width,
-        }
-        let ownProjectsTittle = <a className="navbar-brand" href="#!">
-            <h2>
-                {this.props.text.title}
-            </h2>
-        </a>;
-        if (settings.width < adaptiveStartWidth) ownProjectsTittle = <a className="navbar-brand mx-auto" href="#!">
-            <h2>
-                {this.props.text.title}
-            </h2>
-        </a>
 
-        return (
-            <div
-                className='List container-fluid pt-4 m-0 h-100 mx-auto'
-            >
-                <div
-                    className='row mx-auto'
-                >
-                    <div
-                        className='col-md-12 p-0'
-                    >
-                        <div className="Tittle card">
-                            <nav className="navbar">
-                                {ownProjectsTittle}
-                            </nav>
-                        </div>
-                    </div>
-
-                    <div
-                        className='col-md-12 p-0'
-                    >
-                        <Item
-                            tittle='The Little Spaceship'
-                            text={this.props.text.theLittleSpaceShip}
-                            imageSrc={require('./images/spaceship.JPG')}
-                            buttonHref='/thelittlespaceship'
-                            buttonText={this.props.text.button}
-                            {...settings}
-                        />
-                    </div>
-
-                    <div
-                        className='col-md-12 p-0 last-item'
-                    >
-                        <Item
-                            tittle='Simple Draw'
-                            text={this.props.text.simpleDraw}
-                            imageSrc={require('./images/simpledraw.JPG')}
-                            buttonHref='/simpledraw'
-                            buttonText={this.props.text.button}
-                            {...settings}
-                        />
-                    </div>
-
-
-                </div>
-            </div>
-        );
+  render() {
+    const settings = {
+      width: this.props.width,
+      adaptiveStartWidth: 600,
     }
+
+    const text = this.props.text;
+
+    const blocks = data.map((block, i) => {
+      const items = block.items.map((item, j) => {
+        const itemText = text.blocks[i].items[j];
+        return (
+          <Item
+            title={itemText.title}
+            key={itemText.title}
+            text={itemText.brief}
+            imageSrc={item.img}
+            buttonHref={item.href}
+            buttonText={text.button}
+            {...settings}
+          />
+        );
+      });
+      return (
+        <Block
+          title={text.blocks[i].title}
+          key={text.blocks[i].title}
+          items={items}
+          settings={settings}
+        />
+      );
+    });
+
+    return (
+      <div className='List container-fluid m-0 h-100 mx-auto'>
+        {blocks}
+      </div>
+    );
+  }
 }

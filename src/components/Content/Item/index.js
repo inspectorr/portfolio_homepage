@@ -9,18 +9,19 @@ export default class Item extends Component {
     render() {
         const adaptiveStartWidth = 600;
 
-        let imgSide, tittleTop, tittleRight;
+        let imgSide, titleTop, titleRight;
         if (this.props.width >= adaptiveStartWidth) {
             imgSide = 200;
-            tittleRight = <div className='Element p-0'><h3 className='card-tittle font-weight-bold'>{this.props.tittle}</h3></div>;
-            tittleTop = null;
+            titleRight = <div className='Element p-0'><h3 className='card-title font-weight-bold'>{this.props.title}</h3></div>;
+            titleTop = null;
         } else {
             imgSide = 300;
-            tittleTop = <div className='Element card-header col-md-auto rounded-0'><h3 className='card-tittle font-weight-bold text-center'>{this.props.tittle}</h3></div>;
-            tittleRight = null;
+            titleTop = <div className='Element card-header col-md-auto rounded-0'><h3 className='card-title font-weight-bold text-center'>{this.props.title}</h3></div>;
+            titleRight = null;
         }
 
         return (
+          <div className='col-md-12 p-0'>
             <a href={this.props.href}>
                 <div
                     className='card border-top-0 rounded-0'
@@ -28,7 +29,7 @@ export default class Item extends Component {
                     <div className='row'>
                         <div className='col'>
 
-                            {tittleTop}
+                            {titleTop}
 
                             <div className='card-body rounded-0'
                             >
@@ -41,7 +42,7 @@ export default class Item extends Component {
 
                                     <div
                                         className={
-                                            tittleTop ? 'Element Img col-md-auto text-center py-3' : 'Element Img text-center'
+                                            titleTop ? 'Element Img col-md-auto text-center py-3' : 'Element Img text-center'
                                         }
                                     >
 
@@ -55,7 +56,7 @@ export default class Item extends Component {
                                     </div>
 
                                     <div className='Element col'>
-                                        {tittleRight}
+                                        {titleRight}
 
                                         <p className='card-text font-weight-light'>
                                             {this.props.text}
@@ -82,14 +83,7 @@ export default class Item extends Component {
                     </div>
                 </div>
             </a>
+          </div>
         );
     }
 }
-
-// {
-//     <canvas
-//         ref='canvas'
-//         width={this.props.side}
-//         height={this.props.side}
-//     ></canvas>
-// }

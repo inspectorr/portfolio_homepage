@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 
+import texts from './texts';
+
 import Hat from './Hat';
 import Content from './Content';
 import CloudBackground from './CloudBackground';
 import Contacts from './Contacts';
 import Footer from './Footer';
-import texts from './texts';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        let text;
-        if (this.props.lang === 'ru-RU') text = texts.ru;
-        else text = texts.en;
-        this.text = text;
-    }
+  constructor(props) {
+    super(props);
+    this.text = this.props.lang === 'ru-RU' ? texts.ru : texts.en;
+  }
 
     state = {
         window: {
